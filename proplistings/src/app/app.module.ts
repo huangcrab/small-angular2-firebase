@@ -5,7 +5,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { AngularFireModule } from 'angularfire2';
 import { FirebaseService} from './services/firebase.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -46,7 +46,11 @@ const appRoutes: Routes = [
   {
     path:"listing/:id",
     component:ListingComponent
-  }
+  },
+  {
+    path:"edit-listing/:id",
+    component:EditListingComponent
+  },
 ]
 
 
@@ -58,7 +62,8 @@ const appRoutes: Routes = [
     NarbarComponent,
     ListingComponent,
     AddListingComponent,
-    EditListingComponent
+    EditListingComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -66,7 +71,8 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    FormsModule
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]
